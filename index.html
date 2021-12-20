@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Trajectory</title>
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+<img id="zohoLogo" src="zoho.jpeg">
+<br><br><br>
+
+<script >
+    var res=()=>{
+    	clearTimeout(this.my_time);
+    	clearTimeout(this.my);
+    	document.querySelector('#zohoLogo').style.left='300px';
+    	document.querySelector('#zohoLogo').style.top='100px';
+    	document.querySelector('#msg').innerHTML='';
+    	
+    }
+    function disp(){
+    	let step=1;
+    	let y=document.querySelector('#zohoLogo').offsetTop;
+    	let x=document.querySelector('#zohoLogo').offsetLeft;
+    	document.querySelector('#msg').innerHTML='X:'+x+'Y:'+y;
+    	if(x<1000){
+    		x=x+step;
+    		document.querySelector('#zohoLogo').style.left=`${x}px`;
+    		document.querySelector('#msg').innerHTML=`X:${x} Y:${y}`;
+    	}
+
+    	
+    	
+
+    }
+	function timer(){
+		var my=disp();
+		var my_time=setTimeout('timer()',10);
+	}
+</script>
+
+<input type=button onclick=timer() value="Start" >
+<input type="button" onclick=res() value="Reset">
+<div id='msg'></div>
+</body>
+</html>
